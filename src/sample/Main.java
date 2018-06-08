@@ -40,8 +40,9 @@ public class Main extends Application {
 
     public static void main(String[] args) {
        // launch(args);
-
-        try{
+        Date a = new Date();
+        System.out.println(a);
+       try{
             Mongo mongo = new Mongo("localhost",27017);
             DB db = mongo.getDB("basesmongo");
 

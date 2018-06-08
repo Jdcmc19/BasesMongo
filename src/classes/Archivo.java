@@ -18,9 +18,11 @@ public class Archivo {
 
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse (new File("C:/Users/iWorth/iCloudDrive/Documents/Semestre I 2018/Bases II/Proyecto/Proyect/Proyecto 3/reuters21578/reut2-011.xml"));
-
+            System.out.println("llegó1");
+           // Document doc = docBuilder.parse (new File("C:/Users/iWorth/iCloudDrive/Documents/Semestre I 2018/Bases II/Proyecto/Proyect/Proyecto 3/reuters21578/reut2-011.xml"));
+            Document doc = docBuilder.parse (new File("C:/Users/Sebas/Desktop/TEC/VII Semestre/BD II/Proyecto_3/Proyecto 3/reuters21578/reut2-017.xml"));
             // normalize text representation
+            System.out.println("llegó");
             doc.getDocumentElement ().normalize ();
             System.out.println ("Root element of the doc is " + doc.getDocumentElement().getNodeName());
 
@@ -31,7 +33,7 @@ public class Archivo {
             ArrayList<Reuter> arrayReuters = new ArrayList<>();
 
             for(int s=0; s<cant ; s++){
-
+                //System.out.println(s);
 
                 Node noticiaNodo = noticias.item(s);
                 if(noticiaNodo.getNodeType() == Node.ELEMENT_NODE){
@@ -47,7 +49,7 @@ public class Archivo {
 
                     NodeList dateList = dateElement.getChildNodes();
 
-                    Date fecha = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSSSSS").parse(dateList.item(0).getTextContent());
+                    String fecha = dateList.item(0).getTextContent();
                     // System.out.println("DATE: "+fecha.toString());
                     //-------------------------------------------
                     NodeList topicsNodo = noticiaElemento.getElementsByTagName("TOPICS");
