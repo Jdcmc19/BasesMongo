@@ -15,6 +15,6 @@ public class Noticia {
 
     @Override
     public String toString() {
-        return "\n\ttitle: "+title+"\n\tauthor: "+author+"\n\tdateline: "+dateline+"\n\tbody: "+body;
+        return "{\"title\" : \""+title.replaceAll("\"","\'")+"\", \"author\" : \""+author.replaceAll("\"","\'")+"\", \"dateline\" : \""+dateline.replaceAll("\"","\'")+"\", \"body\" : \""+body.replaceAll("\"","\'")+"\"}";
     }
 }
