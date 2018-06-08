@@ -18,7 +18,7 @@ public class Archivo {
 
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse (new File("C:/Users/iWorth/iCloudDrive/Documents/Semestre I 2018/Bases II/Proyecto/Proyect/Proyecto 3/reuters21578/reut2-014.xml"));
+            Document doc = docBuilder.parse (new File("C:/Users/iWorth/iCloudDrive/Documents/Semestre I 2018/Bases II/Proyecto/Proyect/Proyecto 3/reuters21578/reut2-011.xml"));
 
             // normalize text representation
             doc.getDocumentElement ().normalize ();
