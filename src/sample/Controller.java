@@ -1,6 +1,8 @@
 package sample;
 
 
+import classes.Archivo;
+import classes.Reuter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,11 +13,12 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     @FXML
-    TextField txtPath;
+    TextField txtPath,txtBase,txtColeccion;
     @FXML
     Button btoExaminar,btoCargarDatos,btoCrearIndices,btoConsulta1,btoConsulta2,btoConsulta3;
     @FXML
@@ -41,9 +44,33 @@ public class Controller implements Initializable {
         });
         btoCargarDatos.setOnAction(event -> {
             System.out.println("carga datos del path"+txtPath.getText());
+            empezar(txtPath.getText(),txtBase.getText(),txtColeccion.getText());
         });
         btoCrearIndices.setOnAction(event -> {
             System.out.println("crear indices");
         });
+
+    }
+    public void empezar(String path,String base,String coleccion){
+        try{
+            Mongo mongo = new Mongo("localhost",27017);
+            DB db = mongo.getDB(base);
+
+            DBCollection collection = db.getCollection(coleccion);
+
+            ArrayList<Reuter> arrayList = Archivo.meterArchivo();
+            for(int i = 0; i<arrayList.size();i++){
+
+                String json = arrayList.get(i).toString();
+                DBObject dbObject = (DBObject)JSON.parse(json);
+
+                collection.insert(dbObject);
+            }
+            System.out.println("finish");
+
+
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());}
     }
 }

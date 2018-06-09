@@ -40,28 +40,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-       /* Date a = new Date();
-        System.out.println(a);
-       try{
-            Mongo mongo = new Mongo("localhost",27017);
-            DB db = mongo.getDB("basesmongo");
-
-            DBCollection collection = db.getCollection("reuters");
-
-            ArrayList<Reuter> arrayList = Archivo.meterArchivo();
-            for(int i = 0; i<arrayList.size();i++){
-
-            String json = arrayList.get(i).toString();
-            DBObject dbObject = (DBObject)JSON.parse(json);
-
-            collection.insert(dbObject);
-            }
-            System.out.println("finish");
-
-
-
-        }catch (Exception e){
-            System.out.println(e.getMessage());}*/
-
     }
 }

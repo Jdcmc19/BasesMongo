@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Archivo {
-    public static ArrayList<Reuter> meterArchivo(){
+    public static ArrayList<Reuter> meterArchivo(String path){
         try {
 
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
