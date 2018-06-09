@@ -3,11 +3,11 @@ package sample;
 import classes.Archivo;
 import classes.Noticia;
 import classes.Reuter;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.mongodb.Mongo;
-import com.mongodb.util.JSON;
+//import com.mongodb.DB;
+//import com.mongodb.DBCollection;
+//import com.mongodb.DBObject;
+//import com.mongodb.Mongo;
+//import com.mongodb.util.JSON;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,15 +32,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Mongo");
+        primaryStage.setScene(new Scene(root, 592, 444));
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
-       // launch(args);
-        Date a = new Date();
+        launch(args);
+       /* Date a = new Date();
         System.out.println(a);
        try{
             Mongo mongo = new Mongo("localhost",27017);
@@ -61,7 +61,7 @@ public class Main extends Application {
 
 
         }catch (Exception e){
-            System.out.println(e.getMessage());}
+            System.out.println(e.getMessage());}*/
 
     }
 }
