@@ -1,6 +1,7 @@
 package sample;
 
 import classes.Archivo;
+import classes.Conexion;
 import classes.Noticia;
 import classes.Reuter;
 //import com.mongodb.DB;
@@ -33,12 +34,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Mongo");
-        primaryStage.setScene(new Scene(root, 592, 444));
+        primaryStage.setScene(new Scene(root, 592, 600));
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
         launch(args);
+
+
     }
 }

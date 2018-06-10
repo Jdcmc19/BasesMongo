@@ -2,6 +2,7 @@ package sample;
 
 
 import classes.Archivo;
+import classes.Conexion;
 import classes.Reuter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,30 +29,39 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         btoConsulta1.setOnAction(event -> {
-            txtConsultas.setText("Consulta 1");
+            txtConsultas.setText("");
+
+            txtConsultas.setText(Conexion.PrimeraConsulta(Conexion.Nombre_colleccion));
         });
         btoConsulta2.setOnAction(event -> {
-            txtConsultas.setText("Consulta 2");
+            txtConsultas.setText("");
+            txtConsultas.setText(Conexion.SegundaConsulta(Conexion.Nombre_colleccion));
         });
         btoConsulta3.setOnAction(event -> {
-            txtConsultas.setText("Consulta 3");
+            txtConsultas.setText("");
+            txtConsultas.setText(Conexion.TerceraConsulta(Conexion.Nombre_colleccion));
         });
         btoExaminar.setOnAction(event -> {
             DirectoryChooser directoryChooser = new DirectoryChooser();
             File file = directoryChooser.showDialog(null);
+            Conexion.Path_conexion=file.getAbsolutePath();
+            System.out.println(file.getAbsolutePath());
             txtPath.setText(file.getAbsolutePath());
             System.out.println("abrir filechooser");
         });
         btoCargarDatos.setOnAction(event -> {
+            Conexion.Nombre_colleccion=txtColeccion.getText();
+
             System.out.println("carga datos del path"+txtPath.getText());
-            empezar(txtPath.getText(),txtBase.getText(),txtColeccion.getText());
+            Conexion.AgregarDatos(Conexion.Path_conexion,Conexion.Nombre_colleccion);
         });
         btoCrearIndices.setOnAction(event -> {
+            Conexion.CrearIndices(Conexion.Nombre_colleccion);
             System.out.println("crear indices");
         });
 
     }
-    public void empezar(String path,String base,String coleccion){
+    /*public void empezar(String path,String base,String coleccion){
         try{
             Mongo mongo = new Mongo("localhost",27017);
             DB db = mongo.getDB(base);
@@ -72,5 +82,5 @@ public class Controller implements Initializable {
 
         }catch (Exception e){
             System.out.println(e.getMessage());}
-    }
+    }*/
 }

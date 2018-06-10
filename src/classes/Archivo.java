@@ -13,14 +13,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Archivo {
+
+
+
+
+
+
     public static ArrayList<Reuter> meterArchivo(String path){
         try {
 
             DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            System.out.println("llegó1");
+            System.out.println(path);
+           path=path.replace('\\','/');
            // Document doc = docBuilder.parse (new File("C:/Users/iWorth/iCloudDrive/Documents/Semestre I 2018/Bases II/Proyecto/Proyect/Proyecto 3/reuters21578/reut2-011.xml"));
-            Document doc = docBuilder.parse (new File("C:/Users/Sebas/Desktop/TEC/VII Semestre/BD II/Proyecto_3/Proyecto 3/reuters21578/reut2-017.xml"));
+            Document doc = docBuilder.parse (new File(path));
             // normalize text representation
             System.out.println("llegó");
             doc.getDocumentElement ().normalize ();
