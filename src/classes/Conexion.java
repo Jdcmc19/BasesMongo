@@ -79,8 +79,8 @@ public class Conexion {
         BasicDBObject index4 = new BasicDBObject("orgs",1);
         BasicDBObject index5 = new BasicDBObject("exchanges",1);
         BasicDBObject index6 = new BasicDBObject();
-           index6.put("notice.body","text");
-         index6.put("notice.title","text");
+           index6.put("text.body","text");
+         index6.put("text.title","text");
 
 
         collection.createIndex(index);
@@ -141,7 +141,7 @@ public class Conexion {
 
             BasicDBObject fields = new BasicDBObject();
             fields.put("newId",1);
-            fields.put("notice.title",1);
+            fields.put("text.title",1);
             fields.put("_id",0);
             DBCursor consulta= collection.find(allQuery,fields);
             consulta.sort(new BasicDBObject("newId ", 1));
@@ -168,7 +168,7 @@ return respuesta;
 
             BasicDBObject fields = new BasicDBObject();
             fields.put("newId",1);
-            fields.put("notice.title",1);
+            fields.put("text.title",1);
             fields.put("_id",0);
             DBCursor consulta= collection.find(a,fields).sort(new BasicDBObject("newId ", 1));
            // consulta.sort(new BasicDBObject("newId ", 1));

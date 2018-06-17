@@ -26,6 +26,6 @@ public class Reuter {
 
     @Override
     public String toString() {
-        return "{\"newId\" : "+newId+", \"date\" : \""+date+"\", \"topics\" : "+topics+", \"places\" : "+places+", \"people\" : "+people+", \"orgs\" : "+orgs+", \"exchanges\" : "+exchanges+", \"notice\" : "+notice.toString()+"}";
+        return "{\"newId\" : "+newId+", \"date\" : \""+date+"\", \"topics\" : "+topics+", \"places\" : "+places+", \"people\" : "+people+", \"orgs\" : "+orgs+", \"exchanges\" : "+exchanges+", \"text\" : "+notice.toString()+"}";
     }
 }
